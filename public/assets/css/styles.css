@@ -689,3 +689,51 @@ tbody td {
     margin-top: 2rem;
 
 }
+
+.loader {
+    position: fixed;
+    margin-top: 5rem;
+    height: 110%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: white;
+    margin-top: -5rem;
+}
+
+.loader svg {
+    /* stroke: #27FB6B; */
+    fill: none;
+    height: 7rem;
+    width: 7rem;
+}
+
+.loader svg circle {
+    animation: 4s a infinite linear, 3s o infinite linear;
+}
+
+@keyframes a {
+    from {
+        stroke-dasharray: 100 0
+    }
+    50% {
+        stroke-dasharray: 0 100
+    }
+    to {
+        stroke-dasharray: 100 0
+    }
+}
+
+@keyframes o {
+    from {
+        stroke-dashoffset: 75
+    }
+    to {
+        stroke-dashoffset: 375
+    }
+}

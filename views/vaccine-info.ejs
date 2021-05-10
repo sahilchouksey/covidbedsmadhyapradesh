@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaccination centers of Covid-19 in <%= data && data[0].district_name %> district | XIX3R</title>
+    <title>Vaccination centers of Covid-19 | XIX3R</title>
     <link type="text/css" rel="stylesheet" href="../../assets/css/styles.css">
     <link type="text/css" rel="stylesheet" href="../../assets/css/styles-page-2.css">
 
@@ -23,7 +23,9 @@
         <header class="header">
             <h1 class="heading-3">COVID-19 Hospitals Beds Availability Status In Madhya Pradesh</h1>    
 
-            <h1 class="title city-title">Vaccination centers of Covid-19 in <%= data && data[0].district_name %> district</h1>    
+            <div class="city-title-wrapper">
+
+            </div>
             
             <div>
                 <h2 class="base-text">Select Your City: </h2>
@@ -98,13 +100,7 @@
 
         <main class="main-content">
             <div class="sub-navbar ">
-                <a href="bed-status" class="sub-navbar-tab <%= data_type.data_type==='bed-status' ? 'sub-navbar-tab-active' : '' %>">
-                    Bed Status
-                </a>
                 
-                <a href="vaccine-info" class="sub-navbar-tab  <%= data_type.data_type==='vaccine-info' ? 'sub-navbar-tab-active' : '' %>">
-                    Vaccine Info
-                </a>
             </div>
 
 
@@ -165,68 +161,6 @@
                           <tbody>
 
 
-                            <% data.forEach(item => { console.log(item.name)  %>
-
-                                <tr>
-                                    <td class="hospital-name title hospital-td medium" >
-                                        <span class="hospital-name-text">
-                                            <%= item.name %>
-                                        </span>
-                                        <span class="hospital-address">
-                                            <%= item.address ? item.address + '\n' : "-" %>,
-                                            <%= item.block_name ? item.block_name : "-" %>,
-                                            <%= item.district_name ? item.district_name : "-" %>,
-                                            <%= item.pincode ? item.pincode : "-" %>
-                                        </span>
-
-                                        <div class="hospital-type small-text--bold"><%= item.fee_type %></div>
-    
-                                            
-                                    </td>
-                                    <td class="title desktop-row text-center vaccine-wrapper" >
-                                        <span class="availability"><%= item.sessions[0] ? item.sessions[0].vaccine : "-" %></span>
-                                        <span class="vaccination-age-limit"> age: <%= item.sessions[0] ? item.sessions[0].min_age_limit : "" %>+ </span>
-                                    </td>
-                                    <td class="title desktop-row text-center" >
-                                        <span class="availability <%= (item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''  %>"><%= (item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" %></span>
-                                    </td>
-                                    <td class="title desktop-row text-center" >
-                                        <span class="vaccination-date"><%= (item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-" %></span>
-                                    </td>
-    
-    
-    
-                                    <td class="small-text--bold text-center hidden mobile-row mobile-row-td" >
-                                        <div class="vaccine-data">
-                                            <p>Vaccine</p> 
-
-                                            <span class="availability"><%= item.sessions[0] ? item.sessions[0].vaccine : "-" %></span> -
-                                            <span class="vaccination-age-limit"> age: <%= item.sessions[0] ? item.sessions[0].min_age_limit : "" %>+ </span>
-                                        </div>
-
-                                        <div class="vaccine-capacity-data">
-                                            <p>Capacity</p> 
-
-                                            <span class="availability <%= (item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''  %>"><%= (item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" %></span>
-                                        </div>
-
-                                        <div class="vaccination-date-mobile">
-                                            <p>Date</p> 
-
-
-                                            <span class="vaccination-date"><%= (item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-" %></span>
-                                        </div>
-                                    </td>
-    
-                                </tr>
-                                
-
-                            <% }) %>
-
-                            
-                           
-             
-                          
                             
                           </tbody>
                         </table>
@@ -242,10 +176,11 @@
                 We use data provided by the government bodies to get the hospital bed status and numbers. The actual number of available beds may differ. <b class="regular-text--bold">Please contact the hospital prior visiting.</b>
                 This site holds no responsibility for any mismatches in data.  
             </p>
-            <p class="report-issue regular-text">Get links to data sources <a href="http://">here</a>. Report issues on <a href="http://">GitHub</a> or <a href="http://instagram.com/xix3r">Instagram</a>.</p>
+            <p class="report-issue regular-text">Get links to data sources <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">here</a>. Report issues on <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">GitHub</a> or <a href="http://instagram.com/xix3r" target="_blank">Instagram</a>.</p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/vaccine-info.js"></script>
 </body>
 </html>
