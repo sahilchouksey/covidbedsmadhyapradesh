@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data && data[0].DISTRICT %> Covid-19 Hospital Bed Status | XIX3R</title>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/styles.css">
+
+
+    <link rel="shortcut icon" href="../../assets/logo.svg" type="image/x-icon">    
+    <meta name="description" content="A volunteer-driven effort to track the COVID Hospital Beds availability in Madhya Pradesh.">
+    <meta name="keywords" content="bed, beds, oxygen, ICU, vaccine, vaccination, vaccine-info, vaccination-info, covid, covid19, coronavirus, corona, india, virus, carona, karona, korona, covid beds madhya pradesh, covid beds mp, covid beds in madhya pradesh, covid beds in mp, covid beds bhopal, covid beds indore, covid beds jabalpur, covid beds ujjain, covid beds availability">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mp-covidstatistics.herokuapp.com/">
+    <meta property="og:title" content="COVID Beds in Madhya Pradesh: Realtime availability numbers">
+    <meta property="og:description" content="A volunteer-driven effort to track the COVID Hospital Beds availability in Madhya Pradesh.">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="heading-3">COVID-19 Hospitals Beds Availability Status In Madhya Pradesh</h1>    
+
+            
+            <h2 class="title city-title">COVID-19 Hospitals Beds Availability Status In <%= data && data[0].DISTRICT %> </h2>    
+            
+            <div>
+                <h2 class="base-text">Select Your City: </h2>
+                <a class="Select-box__container">
+                    <label class="Select-box" for="select">
+                        <select id="select" class="selectBox" required="required">
+                            <option value="" disabled selected>Select</option>
+       
+                            <optgroup label="Cities:">
+                                <option class="Select-box__option base-text" value="Agar Malwa"> Agar Malwa</option> 
+                                <option class="Select-box__option base-text" value="Alirajpur"> Alirajpur</option>
+                                <option class="Select-box__option base-text" value="Anuppur"> Anuppur</option>
+                                <option class="Select-box__option base-text" value="Ashoknagar"> Ashoknagar</option>
+                                <option class="Select-box__option base-text" value="Balaghat"> Balaghat</option>
+                                <option class="Select-box__option base-text" value="Barwani"> Barwani</option>
+                                <option class="Select-box__option base-text" value="Betul"> Betul</option>
+                                <option class="Select-box__option base-text" value="Bhind"> Bhind</option>
+                                <option class="Select-box__option base-text" value="Bhopal"> Bhopal</option>
+                                <option class="Select-box__option base-text" value="Burhanpur"> Burhanpur</option>
+                                <option class="Select-box__option base-text" value="Chhatarpur"> Chhatarpur</option>
+                                <option class="Select-box__option base-text" value="Chhindwara"> Chhindwara</option>
+                                <option class="Select-box__option base-text" value="Damoh"> Damoh</option>
+                                <option class="Select-box__option base-text" value="Datia"> Datia</option>
+                                <option class="Select-box__option base-text" value="Dewas"> Dewas</option>
+                                <option class="Select-box__option base-text" value="Dhar"> Dhar</option>
+                                <option class="Select-box__option base-text" value="Dindori"> Dindori</option>
+                                <option class="Select-box__option base-text" value="Guna"> Guna</option>
+                                <option class="Select-box__option base-text" value="Gwalior"> Gwalior</option>
+                                <option class="Select-box__option base-text" value="Harda"> Harda</option>
+                                <option class="Select-box__option base-text" value="Hoshangabad"> Hoshangabad</option>
+                                <option class="Select-box__option base-text" value="Indore"> Indore</option>
+                                <option class="Select-box__option base-text" value="Jabalpur"> Jabalpur</option>
+                                <option class="Select-box__option base-text" value="Jhabua"> Jhabua</option>
+                                <option class="Select-box__option base-text" value="Katni"> Katni</option>
+                                <option class="Select-box__option base-text" value="Khandwa"> Khandwa</option>
+                                <option class="Select-box__option base-text" value="Khargone"> Khargone</option>
+                                <option class="Select-box__option base-text" value="Mandla"> Mandla</option>
+                                <option class="Select-box__option base-text" value="Mandsaur"> Mandsaur</option>
+                                <option class="Select-box__option base-text" value="Morena"> Morena</option>
+                                <option class="Select-box__option base-text" value="Narsinghpur"> Narsinghpur</option>
+                                <option class="Select-box__option base-text" value="Neemuch"> Neemuch</option>
+                                <option class="Select-box__option base-text" value="Panna"> Panna</option>
+                                <option class="Select-box__option base-text" value="Raisen"> Raisen</option>
+                                <option class="Select-box__option base-text" value="Rajgarh"> Rajgarh</option>
+                                <option class="Select-box__option base-text" value="Ratlam"> Ratlam</option>
+                                <option class="Select-box__option base-text" value="Rewa"> Rewa</option>
+                                <option class="Select-box__option base-text" value="Sagar"> Sagar</option>
+                                <option class="Select-box__option base-text" value="Satna"> Satna</option>
+                                <option class="Select-box__option base-text" value="Sehore"> Sehore</option>
+                                <option class="Select-box__option base-text" value="Seoni"> Seoni</option>
+                                <option class="Select-box__option base-text" value="Shahdol"> Shahdol</option>
+                                <option class="Select-box__option base-text" value="Shajapur"> Shajapur</option>
+                                <option class="Select-box__option base-text" value="Sheopur"> Sheopur</option>
+                                <option class="Select-box__option base-text" value="Shivpuri"> Shivpuri</option>
+                                <option class="Select-box__option base-text" value="Sidhi"> Sidhi</option>
+                                <option class="Select-box__option base-text" value="Singrauli"> Singrauli</option>
+                                <option class="Select-box__option base-text" value="Tikamgarh"> Tikamgarh</option>
+                                <option class="Select-box__option base-text" value="Ujjain"> Ujjain</option>
+                                <option class="Select-box__option base-text" value="Umaria"> Umaria</option>
+                                <option class="Select-box__option base-text" value="Vidisha"> Vidisha</option>
+                            </optgroup>
+                            
+                        </select>
+                        <svg >
+                            <use href="../../assets/img/sprints.svg#arrow-down" />
+                        </svg>
+                            
+                      </label>  
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="sub-navbar ">
+                <a href="bed-status" class="sub-navbar-tab <%= data_type.data_type==='bed-status' ? 'sub-navbar-tab-active' : '' %>">
+                    Bed Status
+                </a>
+                
+                <a href="vaccine-info" class="sub-navbar-tab  <%= data_type.data_type==='vaccine-info' ? 'sub-navbar-tab-active' : '' %>">
+                    Vaccine Info
+                </a>
+            </div>
+
+
+            <div class="results-list">
+
+                <div class="results-list-header">
+
+                    <a class="Select-box__container">
+                        <label class="Select-box" for="select">
+                            <select id="select" class="sub-selectBox" required="required">
+                                <option value="" disabled selected>Filter</option>
+           
+                                <!-- <optgroup label=""> -->
+                                    <option class="Select-box__option base-text" value="All" selected>All</option> 
+                                    <option class="Select-box__option base-text" value="Government">Government</option> 
+                                    <option class="Select-box__option base-text" value="Private"> Private</option>
+                                <!-- </optgroup> -->
+                                
+                            </select>
+                            <svg >
+                                <use href="../../assets/img/sprints.svg#arrow-down" />
+                            </svg>
+                                
+                          </label>  
+                    </a>
+
+
+                    <form class="search">
+                        <input type="text" class="search__input" placeholder="Search Hospitals by Name">
+                        <a type="submit" class="search__button">
+                            
+                        </a>
+                    </form>
+
+                </div>
+
+                <div class="table-list">
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <thead>
+                            <tr>
+                                <!-- <th class="small-text--bold">read-more</th> -->
+        
+                                <th class="small-text--bold medium hospital-th" >Hospitals</th>
+                                <th class="small-text--bold desktop-row text-center" >Oxygen</th>
+                                <th class="small-text--bold desktop-row text-center" >ICU</th>
+                                <th class="small-text--bold desktop-row text-center" >Isolation Beds</th>
+                                <th class="small-text--bold text-center hidden mobile-row" >Total</th>
+                            </tr>
+                          </thead>
+                        </table>
+                    </div>
+    
+    
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" >
+                          <tbody>
+
+
+                            <% data.forEach(item => {   %>
+
+                                <tr>
+                                    <td class="hospital-name title hospital-td medium" >
+                                        <span class="hospital-name-text">
+                                            <%= item.HOSPITAL_NAME %>
+                                        </span>
+                                        <div class="hospital-type small-text--bold"><%= item.TYPE %></div>
+    
+                                        <div class="contact-list-wrapper">
+                                            <input type="checkbox"  id="toggle"/>
+                                            
+                                            
+                                            <a class="button-primary contact-button">
+                                                <svg>
+                                                    <use href="../../assets/img/sprints.svg#call" />
+                                                </svg>
+                                                <span>call</span> 
+                                            </a>
+    
+                                            <ol class="contact-list">
+                                                Contact
+                                                <% if(item.CONTACT_1) { %>
+                                                    <li>
+                                                        <a href="tel:<%= item.CONTACT_1.split(':')[1].trim() %>" >
+                                                             <%= item.CONTACT_1.split(":")[1].trim() %>
+                                                        </a>,
+                                                    </li>
+                                                <% }%>
+                                                <% if(item.CONTACT_2) { %>
+                                                    <li>
+                                                        <a href="tel:<%= item.CONTACT_2.split(':')[1].trim() %>" >
+                                                             <%= item.CONTACT_2.split(":")[1].trim() %>
+                                                        </a>,
+                                                    </li>
+                                                <% }%>
+                                                <% if(item.CONTACT_3) { %>
+                                                    <li>
+                                                        <a href="tel:<%= item.CONTACT_3.split(':')[1].trim() %>" >
+                                                             <%= item.CONTACT_3.split(":")[1].trim() %>
+                                                        </a>
+                                                    </li>
+                                                <% }%>
+                                            </ol>
+                                            <span></span>
+                                        </div>
+    
+                                        <a class="button-primary contact-button" href="https://maps.google.com/?q=<%= item.HOSPITAL_NAME.split(" ").join("-").replace("&", "and") %>" target="_blank" style="width: 14rem">
+                                            <svg>
+                                                <use href="../../assets/img/sprints.svg#location" />
+                                            </svg>
+                                            <span>navigate</span> 
+                                        </a>
+    
+                                        <p style="text-align: end;margin-top: 2rem;" class="last-updated small-text">last update: <%= item.LAST_UPDATED ? item.LAST_UPDATED : '-' %></p>
+    
+                                    </td>
+                                    <td class="title desktop-row text-center" >
+                                        <span class="availability <%= item.OXYGEN_BEDS_AVAILABLE && (parseInt(item.OXYGEN_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.OXYGEN_BEDS_AVAILABLE ? item.OXYGEN_BEDS_AVAILABLE : "-" %></span>
+                                        /
+                                        <span class="total-quantity"><%= item.OXYGEN_BEDS_TOTAL ? item.OXYGEN_BEDS_TOTAL : "-" %></span>
+                                    </td>
+                                    <td class="title desktop-row text-center" >
+                                        <span class="availability <%= item.ICU_BEDS_AVAILABLE && (parseInt(item.ICU_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.ICU_BEDS_AVAILABLE ? item.ICU_BEDS_AVAILABLE : "-" %></span>
+                                        /
+                                        <span class="total-quantity"><%= item.ICU_BEDS_TOTAL ? item.ICU_BEDS_TOTAL : "-" %></span>
+                                    </td>
+                                    <td class="title desktop-row text-center" >
+                                        <span class="availability <%= item.ISOLATION_BEDS_AVAILABLE && (parseInt(item.ISOLATION_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.ISOLATION_BEDS_AVAILABLE ? item.ISOLATION_BEDS_AVAILABLE : "-" %></span>
+                                        /
+                                        <span class="total-quantity"><%= item.ISOLATION_BEDS_TOTAL ? item.ISOLATION_BEDS_TOTAL : "-" %></span>
+                                    </td>
+    
+    
+    
+                                    <td class="small-text--bold text-center hidden mobile-row mobile-row-td" >
+                                        <div class="oxygen-data">
+                                            <p>Oxygen</p> 
+                                            
+                                            <span class="availability <%= item.OXYGEN_BEDS_AVAILABLE && (parseInt(item.OXYGEN_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.OXYGEN_BEDS_AVAILABLE ? item.OXYGEN_BEDS_AVAILABLE : "-" %></span>
+                                            /
+                                            <span class="total-quantity"><%= item.OXYGEN_BEDS_TOTAL ? item.OXYGEN_BEDS_TOTAL : "-" %></span>
+                                        </div>
+                                        <div class="ICU-data">
+                                            <p>ICU</p> 
+    
+                                            <span class="availability <%= item.ICU_BEDS_AVAILABLE && (parseInt(item.ICU_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.ICU_BEDS_AVAILABLE ? item.ICU_BEDS_AVAILABLE : "-" %></span>
+                                            /
+                                            <span class="total-quantity"><%= item.ICU_BEDS_TOTAL ? item.ICU_BEDS_TOTAL : "-" %></span>
+                                        </div>
+                                        <div class="Isolation-beds-data">
+                                            <p>Isolation beds</p> 
+    
+                                            <span class="availability <%= item.ISOLATION_BEDS_AVAILABLE && (parseInt(item.ISOLATION_BEDS_AVAILABLE) > 0 ? 'green-bg' : 'red-bg' )  %>"><%= item.ISOLATION_BEDS_AVAILABLE ? item.ISOLATION_BEDS_AVAILABLE : "-" %></span>
+                                            /
+                                            <span class="total-quantity"><%= item.ISOLATION_BEDS_TOTAL ? item.ISOLATION_BEDS_TOTAL : "-" %></span>
+                                        </div>
+                                    </td>
+    
+                                </tr>
+                                
+
+                            <% }) %>
+
+                            
+                           
+             
+                          
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+
+
+            </div>
+        </main>
+
+        <div class="disclaimer">
+            <h2 class="heading-4">Disclaimer</h2>
+            <p class="disclaimer-text regular-text">
+                We use data provided by the government bodies to get the hospital bed status and numbers. The actual number of available beds may differ. <b class="regular-text--bold">Please contact the hospital prior visiting.</b>
+                This site holds no responsibility for any mismatches in data.  
+            </p>
+            <p class="report-issue regular-text">Get links to data sources <a href="http://">here</a>. Report issues on <a href="http://">GitHub</a> or <a href="http://instagram.com/xix3r">Instagram</a>.</p>
+        </div>
+
+    </div>
+
+    <script src="../../assets/js/index.js"></script>
+
+</body>
+</html>

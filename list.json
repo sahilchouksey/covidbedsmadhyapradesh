@@ -1,0 +1,257 @@
+[
+  {
+    "city_name": "Agar Malwa",
+    "hospitalInfoID": 46,
+    "vaccinationInfoID": 320
+  },
+  {
+    "city_name": "Alirajpur",
+    "hospitalInfoID": 14,
+    "vaccinationInfoID": 357
+  },
+  {
+    "city_name": "Anuppur",
+    "hospitalInfoID": 43,
+    "vaccinationInfoID": 334
+  },
+  {
+    "city_name": "Ashoknagar",
+    "hospitalInfoID": 10,
+    "vaccinationInfoID": 354
+  },
+  {
+    "city_name": "Balaghat",
+    "hospitalInfoID": 22,
+    "vaccinationInfoID": 338
+  },
+  {
+    "city_name": "Barwani",
+    "hospitalInfoID": 15,
+    "vaccinationInfoID": 343
+  },
+  {
+    "city_name": "Betul",
+    "hospitalInfoID": 30,
+    "vaccinationInfoID": 362
+  },
+  {
+    "city_name": "Bhind",
+    "hospitalInfoID": 8,
+    "vaccinationInfoID": 351
+  },
+  {
+    "city_name": "Bhopal",
+    "hospitalInfoID": 1,
+    "vaccinationInfoID": 312
+  },
+  {
+    "city_name": "Burhanpur",
+    "hospitalInfoID": 16,
+    "vaccinationInfoID": 342
+  },
+  {
+    "city_name": "Chhatarpur",
+    "hospitalInfoID": 37,
+    "vaccinationInfoID": 328
+  },
+  {
+    "city_name": "Chhindwara",
+    "hospitalInfoID": 23,
+    "vaccinationInfoID": 337
+  },
+  {
+    "city_name": "Damoh",
+    "hospitalInfoID": 38,
+    "vaccinationInfoID": 327
+  },
+  {
+    "city_name": "Datia",
+    "hospitalInfoID": 12,
+    "vaccinationInfoID": 350
+  },
+  {
+    "city_name": "Dewas",
+    "hospitalInfoID": 47,
+    "vaccinationInfoID": 324
+  },
+  {
+    "city_name": "Dhar",
+    "hospitalInfoID": 18,
+    "vaccinationInfoID": 341
+  },
+  {
+    "city_name": "Dindori",
+    "hospitalInfoID": 29,
+    "vaccinationInfoID": 336
+  },
+  {
+    "city_name": "Guna",
+    "hospitalInfoID": 13,
+    "vaccinationInfoID": 348
+  },
+  {
+    "city_name": "Gwalior",
+    "hospitalInfoID": 9,
+    "vaccinationInfoID": 313
+  },
+  {
+    "city_name": "Harda",
+    "hospitalInfoID": 31,
+    "vaccinationInfoID": 361
+  },
+  {
+    "city_name": "Hoshangabad",
+    "hospitalInfoID": 32,
+    "vaccinationInfoID": 360
+  },
+  {
+    "city_name": "Indore",
+    "hospitalInfoID": 17,
+    "vaccinationInfoID": 314
+  },
+  {
+    "city_name": "Jabalpur",
+    "hospitalInfoID": 24,
+    "vaccinationInfoID": 315
+  },
+  {
+    "city_name": "Jhabua",
+    "hospitalInfoID": 19,
+    "vaccinationInfoID": 340
+  },
+  {
+    "city_name": "Katni",
+    "hospitalInfoID": 25,
+    "vaccinationInfoID": 353
+  },
+  {
+    "city_name": "Khandwa",
+    "hospitalInfoID": 20,
+    "vaccinationInfoID": 339
+  },
+  {
+    "city_name": "Khargone",
+    "hospitalInfoID": 21,
+    "vaccinationInfoID": 344
+  },
+  {
+    "city_name": "Mandla",
+    "hospitalInfoID": 26,
+    "vaccinationInfoID": 335
+  },
+  {
+    "city_name": "Mandsaur",
+    "hospitalInfoID": 48,
+    "vaccinationInfoID": 319
+  },
+  {
+    "city_name": "Morena",
+    "hospitalInfoID": 6,
+    "vaccinationInfoID": 347
+  },
+  {
+    "city_name": "Narsinghpur",
+    "hospitalInfoID": 27,
+    "vaccinationInfoID": 352
+  },
+  {
+    "city_name": "Neemuch",
+    "hospitalInfoID": 49,
+    "vaccinationInfoID": 323
+  },
+  {
+    "city_name": "Panna",
+    "hospitalInfoID": 39,
+    "vaccinationInfoID": 326
+  },
+  {
+    "city_name": "Raisen",
+    "hospitalInfoID": 2,
+    "vaccinationInfoID": 359
+  },
+  {
+    "city_name": "Rajgarh",
+    "hospitalInfoID": 3,
+    "vaccinationInfoID": 358
+  },
+  {
+    "city_name": "Ratlam",
+    "hospitalInfoID": 50,
+    "vaccinationInfoID": 322
+  },
+  {
+    "city_name": "Rewa",
+    "hospitalInfoID": 33,
+    "vaccinationInfoID": 316
+  },
+  {
+    "city_name": "Sagar",
+    "hospitalInfoID": 40,
+    "vaccinationInfoID": 317
+  },
+  {
+    "city_name": "Satna",
+    "hospitalInfoID": 34,
+    "vaccinationInfoID": 333
+  },
+  {
+    "city_name": "Sehore",
+    "hospitalInfoID": 4,
+    "vaccinationInfoID": 356
+  },
+  {
+    "city_name": "Seoni",
+    "hospitalInfoID": 28,
+    "vaccinationInfoID": 349
+  },
+  {
+    "city_name": "Shahdol",
+    "hospitalInfoID": 44,
+    "vaccinationInfoID": 332
+  },
+  {
+    "city_name": "Shajapur",
+    "hospitalInfoID": 51,
+    "vaccinationInfoID": 321
+  },
+  {
+    "city_name": "Sheopur",
+    "hospitalInfoID": 7,
+    "vaccinationInfoID": 346
+  },
+  {
+    "city_name": "Shivpuri",
+    "hospitalInfoID": 11,
+    "vaccinationInfoID": 345
+  },
+  {
+    "city_name": "Sidhi",
+    "hospitalInfoID": 35,
+    "vaccinationInfoID": 331
+  },
+  {
+    "city_name": "Singrauli",
+    "hospitalInfoID": 36,
+    "vaccinationInfoID": 330
+  },
+  {
+    "city_name": "Tikamgarh",
+    "hospitalInfoID": 41,
+    "vaccinationInfoID": 325
+  },
+  {
+    "city_name": "Ujjain",
+    "hospitalInfoID": 52,
+    "vaccinationInfoID": 318
+  },
+  {
+    "city_name": "Umaria",
+    "hospitalInfoID": 45,
+    "vaccinationInfoID": 329
+  },
+  {
+    "city_name": "Vidisha",
+    "hospitalInfoID": 5,
+    "vaccinationInfoID": 355
+  }
+]

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination centers of Covid-19 in <%= data && data[0].district_name %> district | XIX3R</title>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/styles.css">
+    <link type="text/css" rel="stylesheet" href="../../assets/css/styles-page-2.css">
+
+    <link rel="shortcut icon" href="../../assets/logo.svg" type="image/x-icon">    
+    <meta name="description" content="A volunteer-driven effort to track the COVID Hospital Beds availability in Madhya Pradesh.">
+    <meta name="keywords" content="bed, beds, oxygen, ICU, vaccine, vaccination, vaccine-info, vaccination-info, covid, covid19, coronavirus, corona, india, virus, carona, karona, korona, covid beds madhya pradesh, covid beds mp, covid beds in madhya pradesh, covid beds in mp, covid beds bhopal, covid beds indore, covid beds jabalpur, covid beds ujjain, covid beds availability">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mp-covidstatistics.herokuapp.com/">
+    <meta property="og:title" content="COVID Beds in Madhya Pradesh: Realtime availability numbers">
+    <meta property="og:description" content="A volunteer-driven effort to track the COVID Hospital Beds availability in Madhya Pradesh.">
+
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="heading-3">COVID-19 Hospitals Beds Availability Status In Madhya Pradesh</h1>    
+
+            <h1 class="title city-title">Vaccination centers of Covid-19 in <%= data && data[0].district_name %> district</h1>    
+            
+            <div>
+                <h2 class="base-text">Select Your City: </h2>
+                <a class="Select-box__container">
+                    <label class="Select-box" for="select">
+                        <select id="select" class="selectBox" required="required">
+                            <option value="" disabled selected>Select</option>
+       
+                            <optgroup label="Cities:">
+                                <option class="Select-box__option base-text" value="Agar Malwa"> Agar Malwa</option> 
+                                <option class="Select-box__option base-text" value="Alirajpur"> Alirajpur</option>
+                                <option class="Select-box__option base-text" value="Anuppur"> Anuppur</option>
+                                <option class="Select-box__option base-text" value="Ashoknagar"> Ashoknagar</option>
+                                <option class="Select-box__option base-text" value="Balaghat"> Balaghat</option>
+                                <option class="Select-box__option base-text" value="Barwani"> Barwani</option>
+                                <option class="Select-box__option base-text" value="Betul"> Betul</option>
+                                <option class="Select-box__option base-text" value="Bhind"> Bhind</option>
+                                <option class="Select-box__option base-text" value="Bhopal"> Bhopal</option>
+                                <option class="Select-box__option base-text" value="Burhanpur"> Burhanpur</option>
+                                <option class="Select-box__option base-text" value="Chhatarpur"> Chhatarpur</option>
+                                <option class="Select-box__option base-text" value="Chhindwara"> Chhindwara</option>
+                                <option class="Select-box__option base-text" value="Damoh"> Damoh</option>
+                                <option class="Select-box__option base-text" value="Datia"> Datia</option>
+                                <option class="Select-box__option base-text" value="Dewas"> Dewas</option>
+                                <option class="Select-box__option base-text" value="Dhar"> Dhar</option>
+                                <option class="Select-box__option base-text" value="Dindori"> Dindori</option>
+                                <option class="Select-box__option base-text" value="Guna"> Guna</option>
+                                <option class="Select-box__option base-text" value="Gwalior"> Gwalior</option>
+                                <option class="Select-box__option base-text" value="Harda"> Harda</option>
+                                <option class="Select-box__option base-text" value="Hoshangabad"> Hoshangabad</option>
+                                <option class="Select-box__option base-text" value="Indore"> Indore</option>
+                                <option class="Select-box__option base-text" value="Jabalpur"> Jabalpur</option>
+                                <option class="Select-box__option base-text" value="Jhabua"> Jhabua</option>
+                                <option class="Select-box__option base-text" value="Katni"> Katni</option>
+                                <option class="Select-box__option base-text" value="Khandwa"> Khandwa</option>
+                                <option class="Select-box__option base-text" value="Khargone"> Khargone</option>
+                                <option class="Select-box__option base-text" value="Mandla"> Mandla</option>
+                                <option class="Select-box__option base-text" value="Mandsaur"> Mandsaur</option>
+                                <option class="Select-box__option base-text" value="Morena"> Morena</option>
+                                <option class="Select-box__option base-text" value="Narsinghpur"> Narsinghpur</option>
+                                <option class="Select-box__option base-text" value="Neemuch"> Neemuch</option>
+                                <option class="Select-box__option base-text" value="Panna"> Panna</option>
+                                <option class="Select-box__option base-text" value="Raisen"> Raisen</option>
+                                <option class="Select-box__option base-text" value="Rajgarh"> Rajgarh</option>
+                                <option class="Select-box__option base-text" value="Ratlam"> Ratlam</option>
+                                <option class="Select-box__option base-text" value="Rewa"> Rewa</option>
+                                <option class="Select-box__option base-text" value="Sagar"> Sagar</option>
+                                <option class="Select-box__option base-text" value="Satna"> Satna</option>
+                                <option class="Select-box__option base-text" value="Sehore"> Sehore</option>
+                                <option class="Select-box__option base-text" value="Seoni"> Seoni</option>
+                                <option class="Select-box__option base-text" value="Shahdol"> Shahdol</option>
+                                <option class="Select-box__option base-text" value="Shajapur"> Shajapur</option>
+                                <option class="Select-box__option base-text" value="Sheopur"> Sheopur</option>
+                                <option class="Select-box__option base-text" value="Shivpuri"> Shivpuri</option>
+                                <option class="Select-box__option base-text" value="Sidhi"> Sidhi</option>
+                                <option class="Select-box__option base-text" value="Singrauli"> Singrauli</option>
+                                <option class="Select-box__option base-text" value="Tikamgarh"> Tikamgarh</option>
+                                <option class="Select-box__option base-text" value="Ujjain"> Ujjain</option>
+                                <option class="Select-box__option base-text" value="Umaria"> Umaria</option>
+                                <option class="Select-box__option base-text" value="Vidisha"> Vidisha</option>
+                            </optgroup>
+                            
+                        </select>
+                        <svg >
+                            <use href="../../assets/img/sprints.svg#arrow-down" />
+                        </svg>
+                            
+                      </label>  
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="sub-navbar ">
+                <a href="bed-status" class="sub-navbar-tab <%= data_type.data_type==='bed-status' ? 'sub-navbar-tab-active' : '' %>">
+                    Bed Status
+                </a>
+                
+                <a href="vaccine-info" class="sub-navbar-tab  <%= data_type.data_type==='vaccine-info' ? 'sub-navbar-tab-active' : '' %>">
+                    Vaccine Info
+                </a>
+            </div>
+
+
+            <div class="results-list">
+
+                <div class="results-list-header">
+
+
+                    <a class="Select-box__container">
+                        <label class="Select-box" for="select">
+                            <select id="select" class="sub-selectBox" required="required">
+                                <option value="" disabled selected>Filter</option>
+           
+                                <!-- <optgroup label=""> -->
+                                    <option class="Select-box__option base-text" value="All" selected>All</option> 
+                                    <option class="Select-box__option base-text" value="Free">Free</option> 
+                                    <option class="Select-box__option base-text" value="Paid">Paid</option>
+                                <!-- </optgroup> -->
+                                
+                            </select>
+                            <svg >
+                                <use href="../../assets/img/sprints.svg#arrow-down" />
+                            </svg>
+                                
+                          </label>  
+                    </a>
+
+
+                    <form class="search">
+                        <input type="text" class="search__input" placeholder="Search Hospitals by Location, Pincode">
+                        <a type="submit" class="search__button">
+                            
+                        </a>
+                    </form>
+
+                </div>
+
+                <div class="table-list">
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <thead>
+                            <tr>
+                                <!-- <th class="small-text--bold">read-more</th> -->
+        
+                                <th class="small-text--bold medium hospital-th" >Hospitals</th>
+                                <th class="small-text--bold desktop-row text-center" >Vaccine</th>
+                                <th class="small-text--bold desktop-row text-center" >Capacity</th>
+                                <th class="small-text--bold desktop-row text-center" >Date</th>
+                                <th class="small-text--bold text-center hidden mobile-row" >Total</th>
+                            </tr>
+                          </thead>
+                        </table>
+                    </div>
+    
+    
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" >
+                          <tbody>
+
+
+                            <% data.forEach(item => { console.log(item.name)  %>
+
+                                <tr>
+                                    <td class="hospital-name title hospital-td medium" >
+                                        <span class="hospital-name-text">
+                                            <%= item.name %>
+                                        </span>
+                                        <span class="hospital-address">
+                                            <%= item.address ? item.address + '\n' : "-" %>,
+                                            <%= item.block_name ? item.block_name : "-" %>,
+                                            <%= item.district_name ? item.district_name : "-" %>,
+                                            <%= item.pincode ? item.pincode : "-" %>
+                                        </span>
+
+                                        <div class="hospital-type small-text--bold"><%= item.fee_type %></div>
+    
+                                            
+                                    </td>
+                                    <td class="title desktop-row text-center vaccine-wrapper" >
+                                        <span class="availability"><%= item.sessions[0] ? item.sessions[0].vaccine : "-" %></span>
+                                        <span class="vaccination-age-limit"> age: <%= item.sessions[0] ? item.sessions[0].min_age_limit : "" %>+ </span>
+                                    </td>
+                                    <td class="title desktop-row text-center" >
+                                        <span class="availability <%= (item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''  %>"><%= (item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" %></span>
+                                    </td>
+                                    <td class="title desktop-row text-center" >
+                                        <span class="vaccination-date"><%= (item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-" %></span>
+                                    </td>
+    
+    
+    
+                                    <td class="small-text--bold text-center hidden mobile-row mobile-row-td" >
+                                        <div class="vaccine-data">
+                                            <p>Vaccine</p> 
+
+                                            <span class="availability"><%= item.sessions[0] ? item.sessions[0].vaccine : "-" %></span> -
+                                            <span class="vaccination-age-limit"> age: <%= item.sessions[0] ? item.sessions[0].min_age_limit : "" %>+ </span>
+                                        </div>
+
+                                        <div class="vaccine-capacity-data">
+                                            <p>Capacity</p> 
+
+                                            <span class="availability <%= (item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''  %>"><%= (item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" %></span>
+                                        </div>
+
+                                        <div class="vaccination-date-mobile">
+                                            <p>Date</p> 
+
+
+                                            <span class="vaccination-date"><%= (item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-" %></span>
+                                        </div>
+                                    </td>
+    
+                                </tr>
+                                
+
+                            <% }) %>
+
+                            
+                           
+             
+                          
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+
+
+            </div>
+        </main>
+        <div class="disclaimer">
+            <h2 class="heading-4">Disclaimer</h2>
+            <p class="disclaimer-text regular-text">
+                We use data provided by the government bodies to get the hospital bed status and numbers. The actual number of available beds may differ. <b class="regular-text--bold">Please contact the hospital prior visiting.</b>
+                This site holds no responsibility for any mismatches in data.  
+            </p>
+            <p class="report-issue regular-text">Get links to data sources <a href="http://">here</a>. Report issues on <a href="http://">GitHub</a> or <a href="http://instagram.com/xix3r">Instagram</a>.</p>
+        </div>
+    </div>
+
+    <script src="../../assets/js/index.js"></script>
+</body>
+</html>
