@@ -315,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
             const data = response.data.centers;
        
-            console.log(data);
             return data;
             
         } catch (error) {
