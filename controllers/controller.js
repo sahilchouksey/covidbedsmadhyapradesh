@@ -74,12 +74,6 @@ module.exports = (app) => {
             const url = {}
             url.data_type = data_type
 
-            console.log(data.length);
-            if (!data || data.length < 1) {
-                return res.render("page404")
-
-            }
-        
             return res.render("vaccine-info", { data_type: url})
         }
     })
