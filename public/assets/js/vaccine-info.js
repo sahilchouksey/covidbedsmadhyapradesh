@@ -3,7 +3,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // GLOBAL VARIABLES
     const LOCATIONLEN = window.location.pathname.split("/").length;
-    const DATA_TYPE = window.location.pathname.split("/")[LOCATIONLEN-1].replace("/", "").replace("?", "").replace("#").replace("_");
     const CITY_NAME = window.location.pathname.split("/city")[1].split("/vaccine-info")[0].replace("/", "").trim();
     let PUSHED = false;
 
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const allHopitals = [...document.querySelectorAll("tbody tr")].map(el => el.outerHTML);
     const allHopitalsTypes = [...document.querySelectorAll(".hospital-type")]
     const tableBody =  document.querySelector("table tbody");
-    const subNavbar = document.querySelector(".sub-navbar");
     const constcityTitleWrapper = document.querySelector(".city-title-wrapper");
 
     // Cities list
@@ -384,19 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const displaySubNavbarButtons = (data_type) => {
-        const mockUp = `
-            <a href="bed-status" class="sub-navbar-tab ${data_type.toLowerCase()==='bed-status' ? 'sub-navbar-tab-active' : ''}">
-                Bed Status
-            </a>
-            
-            <a href="vaccine-info" class="sub-navbar-tab  ${data_type.toLowerCase()==='vaccine-info' ? 'sub-navbar-tab-active' : ''}">
-                Vaccine Info
-            </a>
-        `;
-
-        subNavbar.insertAdjacentHTML("beforeend", mockUp);
-    }
+    
 
     const displaySubHeading = (data) => {
         const mockUp = `<h2 class="title city-title">Vaccination centers of Covid-19 ${data && `in ${data[0].district_name} district`}</h2> `;
@@ -434,7 +420,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.title =  `Vaccination centers of Covid-19 in ${items && items[0].district_name} district | XIX3R`;
             displaySubHeading(items);
-            displaySubNavbarButtons(DATA_TYPE)
 
             if (items.length === 0) {
                 PUSHED = true;

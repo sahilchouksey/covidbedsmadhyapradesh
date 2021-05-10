@@ -1,6 +1,5 @@
 // local
 const hospitalData = require("../model/hospitalData");
-const vaccineInfo = require("../model/vaccineInfo");
 
 // json
 const citiesList = require("../list.json");
@@ -72,7 +71,6 @@ module.exports = (app) => {
         }
         
         else if (data_type === "vaccine-info") {
-            let data  = await vaccineInfo(ids.vaccineID, fullDate)
             const url = {}
             url.data_type = data_type
 
@@ -82,7 +80,7 @@ module.exports = (app) => {
 
             }
         
-            return res.render("vaccine-info", { data: data, data_type: url})
+            return res.render("vaccine-info", { data_type: url})
         }
     })
 

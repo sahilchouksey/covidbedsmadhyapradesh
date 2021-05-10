@@ -23,9 +23,8 @@
         <header class="header">
             <h1 class="heading-3">COVID-19 Hospitals Beds Availability Status In Madhya Pradesh</h1>    
 
-            <div class="city-title-wrapper">
+            <div class="city-title-wrapper"></div>
 
-            </div>
             
             <div>
                 <h2 class="base-text">Select Your City: </h2>
@@ -100,7 +99,13 @@
 
         <main class="main-content">
             <div class="sub-navbar ">
+                <a href="bed-status" class="sub-navbar-tab <%= data_type.data_type==='bed-status' ? 'sub-navbar-tab-active' : '' %>">
+                    Bed Status
+                </a>
                 
+                <a href="vaccine-info" class="sub-navbar-tab  <%= data_type.data_type==='vaccine-info' ? 'sub-navbar-tab-active' : '' %>">
+                    Vaccine Info
+                </a>
             </div>
 
 
