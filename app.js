@@ -15,6 +15,6 @@ app.use(express.static('./public'))
 appController(app)
 
 // listen to port 
-app.listen(6960);
-console.log('App is listing to port 6960');
-
+const port = process.env.PORT || 3000;
+app.listen(port);
+console.log(`App is listing to port ${port}`);
