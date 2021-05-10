@@ -21,7 +21,12 @@ module.exports = async(id, date) => {
                 "upgrade-insecure-requests": "1",
                 "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
-              }
+              },
+            proxy: {
+                // 14.141.232.124:8090
+                host: '14.141.232.124',
+                port: 8090
+            }
         });
 
         const data = response.data.centers;
