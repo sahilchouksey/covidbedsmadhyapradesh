@@ -5,7 +5,7 @@ https://mp-covidstatistics.herokuapp.com
 ---  
 
 Data Sources:  
-- Beds Availability Data
+- Beds Availability Data \n
 http://sarthak.nhmmp.gov.in/covid/facility-bed-occupancy-details/ 
 
 - Vaccination Data  
