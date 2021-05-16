@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`
                     <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
                         <li class="title">No Results Found</li>
-                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                        <a class="button-primary show-all-btn btn-mg-0" style="margin-top: 2.5rem">
                             <span>Show All</span> 
                         </a>
                     </div>

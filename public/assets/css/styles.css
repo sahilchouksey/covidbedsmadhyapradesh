@@ -642,8 +642,17 @@ tbody td {
     border-radius: 10px;
     filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.09));
 }
-.results-list-header {
+.results-list-header-wrapper {
     padding: 0 2.5rem;
+}
+.results-list-header-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.results-list-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -747,7 +756,9 @@ tbody td {
 
 
 
-.show-all-btn span {
+.btn-mg-0 span {
+    margin: 0;
+}.show-all-btn span {
     margin: 0;
 }
 

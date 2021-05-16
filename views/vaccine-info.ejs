@@ -111,47 +111,56 @@
 
             <div class="results-list">
 
-                <div class="results-list-header">
-
-
-                    <a class="Select-box__container">
-                        <label class="Select-box" for="select">
-                            <select id="select" class="sub-selectBox" required="required">
-                                <option value="" disabled selected>Filter</option>
-           
-                                <!-- <optgroup label=""> -->
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="All" selected>All</option> 
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Free">Free</option> 
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Paid">Paid</option>
-                                <!-- </optgroup> -->
-                                
-                                <optgroup label="Vaccines:">
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="covaxin">COVAXIN</option> 
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="covishield">COVISHIELD</option> 
-                                </optgroup>
-
-
-                                <optgroup label="Age Group:">
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="18+">18-45</option> 
-                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="45+">45+</option> 
-                                </optgroup>
-
-                            </select>
-                            <svg >
-                                <use href="../../assets/img/sprints.svg#arrow-down" />
-                            </svg>
-                                
-                          </label>  
-                    </a>
-
-
-                    <form class="search">
-                        <input type="text" class="search__input" placeholder="Search Hospitals by Location, Pincode">
-                        <a type="submit" class="search__button">
-                            
+                <div class="results-list-header-wrapper">
+                    <div class="results-list-header">
+                        <a class="Select-box__container">
+                            <label class="Select-box" for="select">
+                                <select id="select" class="sub-selectBox" required="required">
+                                    <option value="" disabled selected>Filter</option>
+               
+                                    <!-- <optgroup label=""> -->
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="All" selected>All</option> 
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="Free">Free</option> 
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="Paid">Paid</option>
+                                    <!-- </optgroup> -->
+                                    
+                                    <optgroup label="Vaccines:">
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="covaxin">COVAXIN</option> 
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="covishield">COVISHIELD</option> 
+                                    </optgroup>
+    
+    
+                                    <optgroup label="Age Group:">
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="18+">18-45</option> 
+                                        <option class="Select-box__option sub-selectBox-box__option base-text" value="45+">45+</option> 
+                                    </optgroup>
+    
+                                </select>
+                                <svg >
+                                    <use href="../../assets/img/sprints.svg#arrow-down" />
+                                </svg>
+                                    
+                              </label>  
                         </a>
-                    </form>
+    
+    
+                        <form class="search">
+                            <input type="text" class="search__input" placeholder="Search Hospitals by Location, Pincode">
+                            <a type="submit" class="search__button">
+                                
+                            </a>
+                        </form>
 
+                    </div>
+
+                    <p class="results-list-header-text"> 
+                        Hurry! Book your slot before someone else does.
+                        <a class="button-primary btn-mg-0" style="margin-top: 1rem" target="_blank" href="https://selfregistration.cowin.gov.in/">
+                            <span>Book</span> 
+                        </a>
+                    </p>
+
+                    
                 </div>
 
                 <div class="table-list">
