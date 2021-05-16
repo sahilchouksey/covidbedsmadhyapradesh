@@ -473,6 +473,9 @@ tbody td {
     .hospital-type {
         top: 8px;
     }
+    .tbl-content {
+        height: 100vh ;
+    }
 }
 .hospital-name-text {
     width: 80%;
