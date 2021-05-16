@@ -118,9 +118,9 @@
                                 <option value="" disabled selected>Filter</option>
            
                                 <!-- <optgroup label=""> -->
-                                    <option class="Select-box__option base-text" value="All" selected>All</option> 
-                                    <option class="Select-box__option base-text" value="Government">Government</option> 
-                                    <option class="Select-box__option base-text" value="Private"> Private</option>
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="All" selected>All</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Government">Government</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Private"> Private</option>
                                 <!-- </optgroup> -->
                                 
                             </select>
@@ -211,7 +211,7 @@
                                             <span></span>
                                         </div>
     
-                                        <a class="button-primary contact-button" href="https://maps.google.com/?q=<%= item.HOSPITAL_NAME.split(" ").join("-").replace("&", "and") %>" target="_blank" style="width: 14rem">
+                                        <a class="button-primary contact-button" href="https://maps.google.com/?q=<%= item.HOSPITAL_NAME.split(" ").join(" ").replace("&", "and") %> <%= data[0].DISTRICT %>" target="_blank" style="width: 14rem">
                                             <svg>
                                                 <use href="../../assets/img/sprints.svg#location" />
                                             </svg>
@@ -288,7 +288,7 @@
                 We use data provided by the government bodies to get the hospital bed status and numbers. The actual number of available beds may differ. <b class="regular-text--bold">Please contact the hospital prior visiting.</b>
                 This site holds no responsibility for any mismatches in data.  
             </p>
-            <p class="report-issue regular-text">Get links to data sources <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">here</a>. Report issues on <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">GitHub</a> or <a href="http://instagram.com/xix3r" target="_blank">Instagram</a>.</p>
+            <p class="report-issue regular-text">Get links to data sources <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">here</a>. Report issues on <a href="https://github.com/sahilchouksey/covidbedsmadhyapradesh" target="_blank">GitHub</a> or <a href="https://www.instagram.com/xix3r" target="_blank">Instagram</a>.</p>
         </div>
 
     </div>

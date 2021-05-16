@@ -1,21 +1,48 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+    if (screen.width <= 600) {
+        document.getElementById("viewport").setAttribute("content", "width=600; initial-scale=0.8");
+    }
+
     // GLOBAL VARIABLES
     let PUSHED = false;
+    let HAS_ERROR = false;
     
     // clearing data from localStorage
     window.localStorage.setItem('filter_free', '')
     window.localStorage.setItem('filter_paid', '')
     window.localStorage.setItem('filter_government', '')
     window.localStorage.setItem('filter_private', '')
-
+    
     // elements
+    const Str = {
+        button: 'show-all-btn'
+    }
     const search_form = document.querySelector(".search");
     const search_input = document.querySelector(".search__input");
     const selectBox = document.querySelector(".selectBox");
     const sub_selectBox = document.querySelector(".sub-selectBox");
+    const sub_selectBoxItems = document.querySelectorAll(".sub-selectBox-box__option");
     const allHopitals = [...document.querySelectorAll("tbody tr")].map(el => el.outerHTML);
     const allHopitalsTypes = [...document.querySelectorAll(".hospital-type")]
     const tableBody =  document.querySelector("table tbody");
+
+        
+    document.addEventListener("DOMNodeInserted", e => {
+        if (HAS_ERROR) {
+            const button = document.querySelector(`.${Str.button}`);
+            
+            button.addEventListener("click", e => {
+                e.preventDefault();
+                [...sub_selectBoxItems].forEach(El => El.selected = El.value.toLowerCase() === 'all' ? true : false  )
+
+                const event = new Event('change');
+
+                // Dispatch it.
+                sub_selectBox.dispatchEvent(event);
+            })
+        }
+    })
 
     // EVENTS
     // selecting cities
@@ -33,13 +60,37 @@ document.addEventListener('DOMContentLoaded', () => {
             tableBody.innerHTML = ""
             let data;
             if ( value === 'all') {
-                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_all') ? true : false;
+                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_all') ? false : true;
             } else if (value === "government") {
-                data = window.localStorage.getItem('filter_government') ? JSON.parse(window.localStorage.getItem('filter_government')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_government') ? true : false;
+                data = window.localStorage.getItem('filter_government') ? JSON.parse(window.localStorage.getItem('filter_government')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_government') ? false : true;
             } else if (value === "private") {
-                data = window.localStorage.getItem('filter_private') ? JSON.parse(window.localStorage.getItem('filter_private')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_private') ? true : false;
+                data = window.localStorage.getItem('filter_private') ? JSON.parse(window.localStorage.getItem('filter_private')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_private') ? false : true;
             }
 
@@ -52,13 +103,37 @@ document.addEventListener('DOMContentLoaded', () => {
             tableBody.innerHTML = ""
             let data;
             if ( value === 'all') {
-                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_all') ? true : false;
+                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_all') ? false : true;
             } else if (value === "free") {
-                data = window.localStorage.getItem('filter_free') ? JSON.parse(window.localStorage.getItem('filter_free')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_free') ? true : false;
+                data = window.localStorage.getItem('filter_free') ? JSON.parse(window.localStorage.getItem('filter_free')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_free') ? false : true;
             } else if (value === "paid") {
-                data = window.localStorage.getItem('filter_paid') ? JSON.parse(window.localStorage.getItem('filter_paid')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                HAS_ERROR = !window.localStorage.getItem('filter_paid') ? true : false;
+                data = window.localStorage.getItem('filter_paid') ? JSON.parse(window.localStorage.getItem('filter_paid')) : [`
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `]
                 PUSHED = window.localStorage.getItem('filter_paid') ? false : true;
             } 
 
@@ -82,52 +157,42 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let data = [];
         if (value && allHopitalsNames) {
-            tableBody.innerHTML = ""
             PUSHED = false;
-
-            if (window.location.pathname.includes("/bed-status")) {
-                allHopitalsNames.forEach(el => {
-                    if (el.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                    }
-                })
-
-            }
             
-            else if (window.location.pathname.includes("/vaccine-info")) {
-                for (let i = 0; i< allHopitalsAddress.length; i++) {
-                    const el = allHopitalsAddress[i];
-                    const el2 = allHopitalsNames[i];
-                    if (el.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                        continue;
-                    }
+            allHopitalsNames.forEach(el => {
+                el.parentElement.parentElement.classList.add("hidden")
 
-                    if (el2.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el2.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                        continue;
-
-                    }
+                if (el.innerText.toLowerCase().trim().includes(value)) {
+                    el.parentElement.parentElement.classList.remove("hidden")
+                    // data.push(el.parentElement.parentElement.outerHTML);
+                    PUSHED = true;
                 }
-                
-            }    
+            })
+            
+            
+            
+            
         }
         
         if ( !PUSHED ) {
             if (data.length === 0) {
+                tableBody.innerHTML = ""
                 PUSHED = true;
-                data.push(`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`);
+                HAS_ERROR = true;
+                data.push( `
+                    <div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>
+                `
+                );
+                tableBody.insertAdjacentHTML('beforeend', data)
             }
             
         }
-        data.forEach(data => {
-            if (data) {
-                tableBody.insertAdjacentHTML('beforeend', data)
-            }
-        })
+        
 
         search_input.value = ''
     })

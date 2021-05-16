@@ -120,11 +120,22 @@
                                 <option value="" disabled selected>Filter</option>
            
                                 <!-- <optgroup label=""> -->
-                                    <option class="Select-box__option base-text" value="All" selected>All</option> 
-                                    <option class="Select-box__option base-text" value="Free">Free</option> 
-                                    <option class="Select-box__option base-text" value="Paid">Paid</option>
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="All" selected>All</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Free">Free</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="Paid">Paid</option>
                                 <!-- </optgroup> -->
                                 
+                                <optgroup label="Vaccines:">
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="covaxin">COVAXIN</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="covishield">COVISHIELD</option> 
+                                </optgroup>
+
+
+                                <optgroup label="Age Group:">
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="18+">18-45</option> 
+                                    <option class="Select-box__option sub-selectBox-box__option base-text" value="45+">45+</option> 
+                                </optgroup>
+
                             </select>
                             <svg >
                                 <use href="../../assets/img/sprints.svg#arrow-down" />
@@ -152,7 +163,7 @@
         
                                 <th class="small-text--bold medium hospital-th" >Hospitals</th>
                                 <th class="small-text--bold desktop-row text-center" >Vaccine</th>
-                                <th class="small-text--bold desktop-row text-center" >Capacity</th>
+                                <th class="small-text--bold desktop-row text-center" >Slots</th>
                                 <th class="small-text--bold desktop-row text-center" >Date</th>
                                 <th class="small-text--bold text-center hidden mobile-row" >Total</th>
                             </tr>

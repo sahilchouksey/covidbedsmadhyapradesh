@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const search_input = document.querySelector(".search__input");
     const selectBox = document.querySelector(".selectBox");
     const sub_selectBox = document.querySelector(".sub-selectBox");
+    const sub_selectBoxItems = document.querySelectorAll(".sub-selectBox-box__option");
+
     const allHopitals = [...document.querySelectorAll("tbody tr")].map(el => el.outerHTML);
     const allHopitalsTypes = [...document.querySelectorAll(".hospital-type")]
     const tableBody =  document.querySelector("table tbody");
@@ -321,11 +323,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // View
-    const displayTableListItem = (item) => {
+    const displayTableListItem = (item, i) => {
         const mockUp = `
             <tr>
+
                 <td class="hospital-name title hospital-td medium" >
-                    <span class="hospital-name-text">
+                  
+
+                  <span class="hospital-name-text">
                         ${item.name}
                     </span>
                     <span class="hospital-address">
@@ -339,15 +344,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         
                 </td>
-                <td class="title desktop-row text-center vaccine-wrapper" >
-                    <span class="availability">${item.sessions[0] ? item.sessions[0].vaccine : "-"}</span>
-                    <span class="vaccination-age-limit"> age: ${item.sessions[0] ? item.sessions[0].min_age_limit : ""}+ </span>
+
+                <td class="session-wrp title desktop-row text-center vaccine-wrapper" >
+                    <div>
+                      ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-1 small-text--bold">session-1:</span>' : ""}
+                      <span class="availability vaccine-name">${item.sessions[0] ? item.sessions[0].vaccine : "-"}</span>
+                      <span class="vaccination-age-limit age-filter"> age: ${item.sessions[0] ? item.sessions[0].min_age_limit : ""}+ </span>
+
+                      ${item.sessions[1] ?
+                        `
+                          ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-2 small-text--bold">session-2:</span>' : ""}
+                          <span class="availability">${item.sessions[1] ? item.sessions[1].vaccine : "-"}</span>
+                          <span class="vaccination-age-limit"> age: ${item.sessions[1] ? item.sessions[1].min_age_limit : ""}+ </span>
+                        
+                        `
+                        : ""
+                      }
+                    </div>
                 </td>
-                <td class="title desktop-row text-center" >
-                    <span class="availability ${(item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''}">${(item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" }</span>
+
+                <td class="slots-wrp title desktop-row text-center" >
+                    <div class="${(item.sessions[0] && item.sessions[1]) ? 'h-100' : ''}">
+                      ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-1 small-text--bold">session-1:</span>' : ""}
+                      <span class="availability ${(item.sessions[0] && item.sessions[0].available_capacity !== null) ? (parseInt(item.sessions[0].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''}">${(item.sessions[0] && item.sessions[0].available_capacity) ? item.sessions[0].available_capacity : "0" }</span>
+                    
+                      ${item.sessions[1] ?
+                        `
+                          ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-2 small-text--bold">session-2:</span>' : ""}
+                          <span class="availability ${(item.sessions[1] && item.sessions[1].available_capacity !== null) ? (parseInt(item.sessions[1].available_capacity) > 0 ? 'green-bg' : 'red-bg' ) : ''}">${(item.sessions[1] && item.sessions[1].available_capacity) ? item.sessions[1].available_capacity : "0" }</span>
+                        `
+                        : ""
+                      }
+                    </div>
                 </td>
-                <td class="title desktop-row text-center" >
-                    <span class="vaccination-date">${(item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-"}</span>
+                <td class="slots-wrp title desktop-row text-center" >
+                      <div class="${(item.sessions[0] && item.sessions[1]) ? 'h-100' : ''}">
+                        ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-1 small-text--bold">session-1:</span>' : ""}
+                        <span class="vaccination-date">${(item.sessions[0] && item.sessions[0].date) ? item.sessions[0].date : "-"}</span>
+                        ${item.sessions[1] ?
+                          `
+                            ${(item.sessions[0] && item.sessions[1]) ? '<span class="session-2 small-text--bold">session-2:</span>' : ""}
+                            <span class="vaccination-date">${(item.sessions[1] && item.sessions[1].date) ? item.sessions[1].date : "-"}</span>
+                          `
+                          : ""
+                        }
+                      </div>
                 </td>
 
 
@@ -423,15 +464,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (items.length === 0) {
                 PUSHED = true;
-                items.push(`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`);
+                tableBody.innerHTML = '';
+                items.push(`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`);
             }
 
-            items.forEach(item => displayTableListItem(item))
+            items.forEach((item, i) => displayTableListItem(item, i))
                 
             
             if (items && tableBody.childElementCount === items.length) {
                 const allHopitalsLocally = [...document.querySelectorAll("tbody tr")].map(el => el.outerHTML);
                 const allHopitalsTypesLocally = [...document.querySelectorAll(".hospital-type")]
+                const allVaccineNameLocally = [...document.querySelectorAll(".vaccine-name")]
+                const allAgeGroupLocally = [...document.querySelectorAll(".age-filter")]
 
                 // storing table filter data
                 // 1. ALL
@@ -445,13 +494,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     const type = el.innerText.toLowerCase()
                     if (!list[type]) list[type] = [];
                     list[type].push(el.parentElement.parentElement.outerHTML);
+                })
     
+                allVaccineNameLocally.map(el => {
+                    const type = el.innerText.toLowerCase()
+                    if (!list[type]) list[type] = [];
+                    list[type].push(el.parentElement.parentElement.parentElement.outerHTML);
+                })
+    
+                allAgeGroupLocally.map(el => {
+                    const type = el.innerText.toLowerCase().split("age:")[1].trim()
+                    if (!list[type]) list[type] = [];
+                    list[type].push(el.parentElement.parentElement.parentElement.outerHTML);
                 })
     
                 if (list.free) window.localStorage.setItem('filter_free', JSON.stringify(list.free))
                 if (list.paid) window.localStorage.setItem('filter_paid', JSON.stringify(list.paid))
-                if (list.government) window.localStorage.setItem('filter_government', JSON.stringify(list.government))
-                if (list.private) window.localStorage.setItem('filter_private', JSON.stringify(list.private))
+                if (list.covaxin) window.localStorage.setItem('filter_covaxin', JSON.stringify(list.covaxin))
+                if (list.covishield) window.localStorage.setItem('filter_covishield', JSON.stringify(list.covishield))
+                if (list['18+']) window.localStorage.setItem('filter_18+', JSON.stringify(list['18+']))
+                if (list['45+']) window.localStorage.setItem('filter_45+', JSON.stringify(list['45+']))
             }
 
 
@@ -461,8 +523,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(error);
             clearLoader();
             PUSHED = true;
-        
-            displayTableListItem([`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`])
+            tableBody.innerHTML = '';
+
+            displayTableListItem([`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`])
 
         }
     }
@@ -471,6 +539,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     // EVENTS
+    const Str = {
+      button: 'show-all-btn'
+    }
+
+    document.addEventListener("DOMNodeInserted", e => {
+      if (PUSHED) {
+          const button = document.querySelector(`.${Str.button}`);
+          
+          button.addEventListener("click", e => {
+              e.preventDefault();
+              [...sub_selectBoxItems].forEach(El => El.selected = El.value.toLowerCase() === 'all' ? true : false  )
+
+              const event = new Event('change');
+
+              // Dispatch it.
+              sub_selectBox.dispatchEvent(event);
+          })
+      }
+  })
+
     // selecting cities
     selectBox.addEventListener("change", (e) => {
         window.location.pathname = e.target.value.split(" ").join("_").toLowerCase(); 
@@ -482,39 +570,75 @@ document.addEventListener('DOMContentLoaded', () => {
         const value =  e.target.value.toLowerCase();
 
 
-        if (value && window.location.pathname.includes("/bed-status")) {
+        if (value && window.location.pathname.includes("/vaccine-info")) {
             tableBody.innerHTML = ""
             let data;
             if ( value === 'all') {
-                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
                 PUSHED = window.localStorage.getItem('filter_all') ? false : true;
-            } else if (value === "government") {
-                data = window.localStorage.getItem('filter_government') ? JSON.parse(window.localStorage.getItem('filter_government')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
-                PUSHED = window.localStorage.getItem('filter_government') ? false : true;
-            } else if (value === "private") {
-                data = window.localStorage.getItem('filter_private') ? JSON.parse(window.localStorage.getItem('filter_private')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
-                PUSHED = window.localStorage.getItem('filter_private') ? false : true;
-            }
-
-
-            return data.forEach(data => (
-                tableBody.insertAdjacentHTML('beforeend', data)
-            ))
-        }
-        else if (value && window.location.pathname.includes("/vaccine-info")) {
-            tableBody.innerHTML = ""
-            let data;
-            if ( value === 'all') {
-                data = window.localStorage.getItem('filter_all') ? JSON.parse(window.localStorage.getItem('filter_all')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
-                PUSHED = window.localStorage.getItem('filter_all') ? false : true;
-            } else if (value === "free") {
-                data = window.localStorage.getItem('filter_free') ? JSON.parse(window.localStorage.getItem('filter_free')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+            } 
+            else if (value === "free") {
+                data = window.localStorage.getItem('filter_free') ? JSON.parse(window.localStorage.getItem('filter_free')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
                 PUSHED = window.localStorage.getItem('filter_free') ? false : true;
-            } else if (value === "paid") {
-                data = window.localStorage.getItem('filter_paid') ? JSON.parse(window.localStorage.getItem('filter_paid')) : [`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`]
+            } 
+            else if (value === "paid") {
+                data = window.localStorage.getItem('filter_paid') ? JSON.parse(window.localStorage.getItem('filter_paid')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
                 PUSHED = window.localStorage.getItem('filter_paid') ? false : true;
             } 
+            else if (value === "18+") {
+                data = window.localStorage.getItem('filter_18+') ? JSON.parse(window.localStorage.getItem('filter_18+')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
+                PUSHED = window.localStorage.getItem('filter_18+') ? false : true;
+            } 
+            else if (value === "45+") {
+                data = window.localStorage.getItem('filter_45+') ? JSON.parse(window.localStorage.getItem('filter_45+')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
+                PUSHED = window.localStorage.getItem('filter_45+') ? false : true;
+            } 
+            else if (value === "covaxin") {
+                  data = window.localStorage.getItem('filter_covaxin') ? JSON.parse(window.localStorage.getItem('filter_covaxin')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
+                  PUSHED = window.localStorage.getItem('filter_covaxin') ? false : true;
+            }
+            else if (value === "covishield") {
+                  data = window.localStorage.getItem('filter_covishield') ? JSON.parse(window.localStorage.getItem('filter_covishield')) : [`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                        <li class="title">No Results Found</li>
+                        <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                            <span>Show All</span> 
+                        </a>
+                    </div>`]
+                  PUSHED = window.localStorage.getItem('filter_covishield') ? false : true;
+            } 
 
+
+            
           
 
             return data.forEach(data => (
@@ -535,52 +659,56 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let data = [];
         if (value && allHopitalsNames) {
-            tableBody.innerHTML = ""
             PUSHED = false;
 
-            if (window.location.pathname.includes("/bed-status")) {
-                allHopitalsNames.forEach(el => {
-                    if (el.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                    }
-                })
+            for (let i = 0; i< allHopitalsAddress.length; i++) {
+                const el = allHopitalsAddress[i];
+                const el2 = allHopitalsNames[i];
 
-            }
-            
-            else if (window.location.pathname.includes("/vaccine-info")) {
-                for (let i = 0; i< allHopitalsAddress.length; i++) {
-                    const el = allHopitalsAddress[i];
-                    const el2 = allHopitalsNames[i];
-                    if (el.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                        continue;
-                    }
+                el.parentElement.parentElement.classList.add("hidden")
+                el2.parentElement.parentElement.classList.add("hidden")
 
-                    if (el2.innerText.toLowerCase().trim().includes(value)) {
-                        data.push(el2.parentElement.parentElement.outerHTML);
-                        PUSHED = true;
-                        continue;
-
-                    }
+                if (el.innerText.toLowerCase().trim().includes(value)) {
+                  el.parentElement.parentElement.classList.remove("hidden")
+                  // data.push(el.parentElement.parentElement.outerHTML);
+                    PUSHED = true;
+                    continue;
                 }
-                
-            }    
+
+                if (el2.innerText.toLowerCase().trim().includes(value)) {
+                    el2.parentElement.parentElement.classList.remove("hidden")
+
+                    // data.push(el2.parentElement.parentElement.outerHTML);
+                    PUSHED = true;
+                    continue;
+
+                }
+            }
+
         }
         
         if ( !PUSHED ) {
-            if (data.length === 0) {
-                PUSHED = true;
-                data.push(`<li class="title" style="text-align: center; list-style: none; margin-top: 5rem; ">No Results Found</li>`);
-            }
+          tableBody.innerHTML = ""
+
+          PUSHED = true;
+          data.push(`<div class="no-results" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; list-style: none; margin-top: 5rem; ">
+                  <li class="title">No Results Found</li>
+                  <a class="button-primary show-all-btn" style="margin-top: 2.5rem">
+                      <span>Show All</span> 
+                  </a>
+              </div>`);
+            
+          tableBody.insertAdjacentHTML('beforeend', data)
             
         }
-        data.forEach(data => {
-            if (data) {
-                tableBody.insertAdjacentHTML('beforeend', data)
-            }
-        })
+
+        
+
+        // data.forEach(data => {
+        //     if (data) {
+        //         tableBody.insertAdjacentHTML('beforeend', data)
+        //     }
+        // })
 
         search_input.value = ''
     })

@@ -34,9 +34,9 @@ body {
 }
 @media only screen and (max-width: 31.875em) {
     /*  510px */ 
-    body {
+    /* body {
         width: 31.875em;
-    }
+    } */
 
 } 
 .container {
@@ -441,6 +441,10 @@ tbody tr {
 tbody tr:not(:last-child) {
     border-bottom: 2px solid #eeeeee;
 }
+
+tbody:last-child {
+    border: 0;
+}
 thead {
     background-color: var(--background-stripe);
 }
@@ -736,4 +740,23 @@ tbody td {
     to {
         stroke-dashoffset: 375
     }
+}
+
+
+
+.show-all-btn span {
+    margin: 0;
+}
+
+.sub-selectBox-box__option {
+    padding: 20px 15px;
+    font-size: 1.8rem !important;
+    margin: .5px 0;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+optgroup {
+    margin-top: 1rem
 }
