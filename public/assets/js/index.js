@@ -1,7 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     if (screen.width <= 600) {
-        document.getElementById("viewport").setAttribute("content", "width=600; initial-scale=0.8");
+        const viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'width=600, initial-scale=0.8');
     }
 
     // GLOBAL VARIABLES

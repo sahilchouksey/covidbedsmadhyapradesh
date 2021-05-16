@@ -1,6 +1,10 @@
 // import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (screen.width <= 600) {
+    const viewport = document.querySelector("meta[name=viewport]");
+    viewport.setAttribute('content', 'width=600, initial-scale=0.8');
+  }
     // GLOBAL VARIABLES
     const LOCATIONLEN = window.location.pathname.split("/").length;
     const CITY_NAME = window.location.pathname.split("/city")[1].split("/vaccine-info")[0].replace("/", "").trim();
